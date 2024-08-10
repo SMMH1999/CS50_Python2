@@ -1,4 +1,3 @@
-from gettext import find
 import os
 
 
@@ -7,8 +6,8 @@ ledger = []
 
 def main():
     data = {"name": "GitHub", "username": "User1", "password": "PassWord1"}
-    add(data["name"], data["username"], data["password"])
-    # add(data["name"], data["username"], data["password"])
+    add(data)
+    # add(data)
     # search(data)
     show()
     new_date = {"name": "GitLab", "username": "User1", "password": "PassWord1"}
@@ -26,7 +25,7 @@ def add(obj):
             find_obj = -1
 
         if find_obj == -1:
-            ledger.append(dict_obj)
+            ledger.append(obj)
             return True
 
         raise ValueError("This information are existed")
