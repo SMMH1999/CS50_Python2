@@ -17,7 +17,6 @@ def main():
 
 
 def add(obj):
-    global ledger
     if obj:
         try:
             find_obj = ledger.index(obj)
@@ -34,7 +33,6 @@ def add(obj):
 
 
 def edit(obj, new_obj) -> bool:
-    global ledger
     if obj and new_obj:
         try:
             find_obj = search(obj)
@@ -51,7 +49,6 @@ def edit(obj, new_obj) -> bool:
 
 
 def show() -> bool:
-    global ledger
 
     if len(ledger):
         os.system("cls")
@@ -69,7 +66,6 @@ def show() -> bool:
 
 
 def remove(obj):
-    global ledger
     if obj:
         try:
             obj_index = ledger.index(obj)
@@ -82,7 +78,6 @@ def remove(obj):
 
 
 def search(obj) -> dict:
-    global ledger
 
     if not obj:
         raise ValueError("Object can not be empty!")
