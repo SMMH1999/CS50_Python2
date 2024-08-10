@@ -17,12 +17,11 @@ def main():
     remove(new_date)
 
 
-def add(name, username, password):
+def add(obj):
     global ledger
-    if name and username and password:
-        dict_obj = {"name": name, "username": username, "password": password}
+    if obj:
         try:
-            find_obj = ledger.index(dict_obj)
+            find_obj = ledger.index(obj)
         except ValueError:
             find_obj = -1
 
