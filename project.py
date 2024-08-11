@@ -95,8 +95,24 @@ def gui() -> int:
             error_message = entered_number_error
 
 
-def add(obj):
-    if obj:
+def valid_object(obj: dict) -> bool:
+    try:
+        keys = list(obj.keys())
+    except Exception:
+        return False
+
+    if len(keys) != 3:
+        return False
+
+    for item in ["name", "username", "password"]:
+        if item not in keys:
+            return False
+
+    return True
+
+
+def add(obj: dict) -> bool:
+    if valid_object(obj):
         try:
             find_obj = ledger.index(obj)
         except ValueError:
@@ -112,7 +128,9 @@ def add(obj):
 
 
 def edit(obj, new_obj) -> bool:
-    if obj and new_obj:
+    if obj == new_obj:
+        raise ValueError("New information are the same last information")
+    if valid_object(obj) and valid_object(new_obj):
         try:
             find_obj = search(obj)
             index_obj = ledger.index(find_obj)
@@ -162,8 +180,8 @@ def show() -> bool:
         raise ValueError("The ledger is empty!!")
 
 
-def remove(obj):
-    if obj:
+def remove(obj: dict) -> bool:
+    if valid_object(obj):
         try:
             obj_index = ledger.index(obj)
         except ValueError as index_error:
