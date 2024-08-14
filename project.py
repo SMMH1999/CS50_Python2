@@ -5,6 +5,7 @@ ledger = []
 
 
 def main():
+    # Function for sorting dictionary base on 'name' and 'username'
     def sortkey(obj) -> str:
         return f'{obj["name"]}{obj["username"]}'
 
@@ -114,11 +115,8 @@ def valid_object(obj: dict) -> bool:
 def add(obj: dict) -> bool:
     if valid_object(obj):
         try:
-            find_obj = ledger.index(obj)
+            ledger.index(obj)
         except ValueError:
-            find_obj = -1
-
-        if find_obj == -1:
             ledger.append(obj)
             return True
 
