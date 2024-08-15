@@ -1,7 +1,10 @@
 
 # Password Manager Python Application
-#### Video Demo:  <URL HERE>
+#### Video Demo:  <https://youtu.be/WRB_kWmLZDU>
 This project is a simple Python-based Password Manager that allows users to securely store, edit, and manage their passwords. The application runs in the console and offers basic functionalities like adding, removing, editing, and displaying stored passwords.
+
+## Item structure
+**{name, username, password}**
 
 ## Features
 
